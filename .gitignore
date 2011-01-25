@@ -1,2 +1,5 @@
 *.class
 build
+doc/*.aux
+doc/*.log
+doc/*.pdf
