@@ -68,6 +68,8 @@ public class KnotTest
 }
 \end{lstlisting}
 
+Oczekujemy tego, że w węzłach wartości funkcji interpolującej będą takie same jak wartości funkcji wzorcowej. Trzeba wziąć pod uwagę ewentualne błędy precyzji/zaokrągleń.
+
 \subsubsection{Wynik}
 
 klasa failuje (nieraz)
@@ -104,8 +106,12 @@ for i = 2:length(intX)
 end
 \end{lstlisting}
 
+Oczekujemy tego, że wyniki interpolacji będą mniej lub bardziej się pokrywać i będą miały taki sam kształt. Trzeba wziąć pod uwagę błędy precyzji oraz to, że Matlab prawdopodobnie implementuje inny (lepszy?) algorytm interpolacji funkcjami sklejanymi.
+
 \subsubsection{Wynik}
 
-calkiem spoko, nieraz bledy (precyzji!)
+We wszystkich przypadkach testowych obserwujemy mniejsze lub większe odchylenia interpolacji Matlabowej od interpolacji CubicSplineFast. Każdy testowany przypadek przeszedł ``test monotoniczności'' czyli można uznać że otrzymywane krzywe miały taki sam kształt.
+
+
 
 \end{document}
