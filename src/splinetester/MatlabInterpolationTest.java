@@ -16,14 +16,31 @@ public class MatlabInterpolationTest
     private double[] testX = null;
     private double[] results = null;
 
-    public void setPoints(double x[], double y[])
+    public MatlabInterpolationTest()
+    {
+        
+    }
+
+    public MatlabInterpolationTest(double x[], MathExpression expr, double points[])
+    {
+        setPoints(x, expr);
+        setTestPoints(points);
+    }
+
+    public MatlabInterpolationTest(double x[], double[] y, double points[])
+    {
+        setPoints(x, y);
+        setTestPoints(points);
+    }
+
+    public final void setPoints(double x[], double y[])
     {
         this.x = x;
         this.y = y;
         spliner = new CubicSplineFast(x, y);
     }
 
-    public void setPoints(double x[], MathExpression expr)
+    public final void setPoints(double x[], MathExpression expr)
     {
         double y[] = new double[x.length];
         for(int i = 0; i < x.length; i++)
@@ -32,7 +49,7 @@ public class MatlabInterpolationTest
         setPoints(x, y);
     }
 
-    public void setTestPoints(double points[])
+    public final void setTestPoints(double points[])
     {
         testX = points;
     }

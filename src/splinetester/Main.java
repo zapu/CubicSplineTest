@@ -1,6 +1,8 @@
 package splinetester;
 
 import java.text.DecimalFormat;
+import java.util.LinkedList;
+import java.util.List;
 
 
 public class Main
@@ -16,14 +18,20 @@ public class Main
 
     public static void main(String[] args)
     {
-        MatlabInterpolationTest test1 = new MatlabInterpolationTest();
-        test1.setPoints(range(-2, 2, 0.5), new MathExpression() {
-            public double y(double x) {
-                return x*x + x*x*x;
-            }
-        });
+        List<MatlabInterpolationTest> interps = new LinkedList<MatlabInterpolationTest>();
 
-        test1.setTestPoints(range(-3, 2, 0.05));
-        System.out.println(test1.generateM());
+        interps.add(new MatlabInterpolationTest(
+                range(-5, 5, 0.1),
+                new MathExpression() {
+                    public double y(double x) {
+                        return Math.sin(x);
+                    }
+                },
+                range(-5, 5, 0.05)));
+
+        for(MatlabInterpolationTest interp : interps)
+        {
+            System.out.println(interp.generateM());
+        }
     }
 }
