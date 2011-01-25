@@ -30,7 +30,17 @@ public class Main
         List<MatlabInterpolationTest> interps = new LinkedList<MatlabInterpolationTest>();
 
         interps.add(new MatlabInterpolationTest(
-                range(-5, 5, 0.1),
+                range(0, 10, 1),
+                new double[] {5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5},
+                range(0, 10, 0.01)));
+
+        interps.add(new MatlabInterpolationTest(
+                range(0, 10, 1),
+                new double[] {3, 8, 7, 8, 5, 3, 5, 5, 6, 1, 3},
+                range(0, 10, 0.01)));
+
+        interps.add(new MatlabInterpolationTest(
+                range(-5, 5, 0.7),
                 new MathExpression() {
                     public double y(double x) {
                         return Math.sin(x);
@@ -56,9 +66,21 @@ public class Main
                 },
                 range(-0.5, 0.5, 0.01)));
 
+        /*interps.add(new MatlabInterpolationTest(
+                twotworange,
+                new MathExpression() {
+                    public double y(double x) {
+                        return Math.pow(x, -3);
+                    }
+                },
+                range(-0.5, 0.5, 0.01)));*/
+
+
         for(MatlabInterpolationTest interp : interps)
         {
+            System.out.println("------");
             System.out.println(interp.generateM());
+            System.out.println("------");
         }
     }
 }
