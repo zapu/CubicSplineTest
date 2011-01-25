@@ -64,6 +64,27 @@ public class CalcDerivBlackTest
         assertArrayEquals( expectedDeriv, instance.d2ydx2, 0.001D );
     }
 
+    @Test(expected=ArrayIndexOutOfBoundsException.class)
+    public void calcDeriv_WithOnePointTest() {
+        double[] x3 = new double[]{1};
+        double[] y3 = new double[]{4};
+        new CubicSplineFast(x3, y3);
+    }
+
+    @Test
+    public void calcDeriv_WithTwoPointsTest() {
+        double[] x3 = new double[]{1, 3};
+        double[] y3 = new double[]{4, 5};
+        new CubicSplineFast(x3, y3);
+    }
+
+    @Test
+    public void calcDeriv_WithThreePointsTest() {
+        double[] x3 = new double[]{1, 3, 5};
+        double[] y3 = new double[]{4, 5, 6};
+        new CubicSplineFast(x3, y3);
+    }
+
     private static void assertArrayEquals(double[] expectedDeriv, double[] d2ydx2, double d)
     {
         for(int i = 0; i < expectedDeriv.length; i++)
