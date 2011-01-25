@@ -46,6 +46,18 @@ public class MatlabInterpolationTest
         }
     }
 
+    public static String testScript =
+        "matlabY = spline(knownX, knownY, intX);\r\n" +
+        "diff = intY - matlabY;\r\n" +
+        "disp(['Largest error: ' num2str(max(diff))]);\r\n" +
+        "for i = 2:length(intX)\r\n" +
+        "    diffInt = intY(i) - intY(i-1);\r\n" +
+        "    diffMat = matlabY(i) - matlabY(i-1);\r\n" +
+        "    if(sign(diffInt) ~= sign(diffMat))\r\n" +
+        "        disp(['Monotony fail: ' num2str(i) ' int: ' num2str(diffInt) ' matlab: ' num2str(diffMat)])\r\n" +
+        "    end\r\n" +
+        "end";
+
     public String generateM()
     {
         interpolate();
@@ -57,16 +69,7 @@ public class MatlabInterpolationTest
         script += MatlabHelper.array("intX", testX) + "\r\n";
         script += MatlabHelper.array("intY", results) + "\r\n";
 
-        script += "matlabY = spline(knownX, knownY, intX);\r\n";
-
-        script += "diff = intY - matlabY;\r\n";
-
-        script += "plot(intX, diff);\r\n";
-
-        /*script += "plot(knownX, knownY);\r\n"
-                + "hold on;\r\n"
-                + "plot(intX, intY);\r\n"
-                + "plot(intX, matlabY);\r\n";*/
+        script += testScript;
 
         return script;
     }
