@@ -66,7 +66,7 @@ public class MatlabInterpolationTest
     public static String testScript =
         "matlabY = spline(knownX, knownY, intX);\r\n" +
         "diff = intY - matlabY;\r\n" +
-        "disp(['Largest error: ' num2str(max(diff))]);\r\n" +
+        "disp(['Largest error: ' num2str(max(abs(diff)))]);\r\n" +
         "for i = 2:length(intX)\r\n" +
         "    diffInt = intY(i) - intY(i-1);\r\n" +
         "    diffMat = matlabY(i) - matlabY(i-1);\r\n" +
