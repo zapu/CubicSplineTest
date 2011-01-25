@@ -58,9 +58,9 @@ public class CalcDerivBlackTest
         }
         CubicSplineFast instance = new CubicSplineFast(x, y);
         instance.calcDeriv();
-        for( int i = 0; i< x.length; i++ ) {
+        /*for( int i = 0; i< x.length; i++ ) {
             System.out.println( expectedDeriv[i] + " ? " + instance.d2ydx2[i] );
-        }
+        }*/
         assertArrayEquals( expectedDeriv, instance.d2ydx2, 0.001D );
     }
 
