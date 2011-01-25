@@ -44,11 +44,12 @@ package flanagan.interpolation;
 
 public class CubicSplineFast{
 
-    	private int nPoints = 0;                            // no. of tabulated points
-    	private double[] y = null;                          // y=f(x) tabulated function
-    	private double[] x = null;                          // x in tabulated function f(x)
-    	private double[] d2ydx2 = null;                     // second derivatives of y
-        private boolean derivCalculated = false;            // = true when the derivatives have been calculated
+        /* Exposed fields for testing purposes */
+    	public int nPoints = 0;                            // no. of tabulated points
+    	public double[] y = null;                          // y=f(x) tabulated function
+    	public double[] x = null;                          // x in tabulated function f(x)
+    	public double[] d2ydx2 = null;                     // second derivatives of y
+        public boolean derivCalculated = false;            // = true when the derivatives have been calculated
 
     	// Constructors
     	// Constructor with data arrays initialised to arrays x and y
