@@ -40,12 +40,20 @@ public class KnotTest
         List<Object[]> list = new LinkedList<Object[]>();
 
         list.add(new Object[] { new KnotTestParameter(
-                    new double[] { 1, 2, 3 },
-                    new double[] { 5, 5, 5 }) });
+            new double[] { 1, 2, 3 },
+            new double[] { 5, 5, 5 }) });
 
         list.add(new Object[] { new KnotTestParameter(
-                    new double[] { 0.2, 0.5, 0.8, 0.12, 0.15 },
-                    new double[] { 0.1987, 0.4794, 0.7174, 0.1197, 0.1494 }) });
+            new double[] { 0.2, 0.5, 0.8, 0.12, 0.15 },
+            new double[] { 0.1987, 0.4794, 0.7174, 0.1197, 0.1494 }) });
+
+        list.add(new Object[] { new KnotTestParameter(
+            new double[] { 1, 1.8, 2.6, 3.4, 4.2, 5, 5.8 },
+            new double[] { 0.6664, 0.5621, 0.8700, 0.9675, 0.6436, 0.5744, 0.8940 }) });
+
+        list.add(new Object[] { new KnotTestParameter(
+            new double[] { -2, -1, 0, 1 },
+            new double[] { 0.25, 0.5, 1, 2 }) });
         
         return list;
     }
@@ -57,7 +65,7 @@ public class KnotTest
         for(int i = 0; i < param.x.length; i++)
         {
             //System.out.println(param.x[i] + ": " + param.y[i] + " " + spline.interpolate(param.x[i]));
-            assertEquals(param.y[i], spline.interpolate(param.x[i]), 0.000001);
+            assertEquals(param.y[i], spline.interpolate(param.x[i]), 0.001);
         }
     }
 
