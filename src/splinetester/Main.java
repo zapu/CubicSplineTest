@@ -29,6 +29,15 @@ public class Main
                 },
                 range(-5, 5, 0.05)));
 
+        interps.add(new MatlabInterpolationTest(
+                range(-2, 2, 0.1),
+                new MathExpression() {
+                    public double y(double x) {
+                        return Math.sin(x);
+                    }
+                },
+                range(-0.5, 0.5, 0.3)));
+
         for(MatlabInterpolationTest interp : interps)
         {
             System.out.println(interp.generateM());
