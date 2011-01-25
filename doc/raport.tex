@@ -73,7 +73,27 @@ Oczekujemy tego, że w węzłach wartości funkcji interpolującej będą takie 
 
 \subsubsection{Wynik}
 
-klasa failuje (nieraz)
+Do testów zostały użyte następujące zestawy danych:
+
+x = 1.0 2.0 3.0
+y = 5.0 5.0 5.0
+
+x = 0.2 0.5 0.8 0.12 0.15 
+y = 0.1987 0.4794 0.7174 0.1197 0.1494 
+
+x = 1.0 1.8 2.6 3.4 4.2 5.0 5.8 
+y = 0.6664 0.5621 0.87 0.9675 0.6436 0.5744 0.894 
+
+x = -2.0 -1.0 0.0 1.0 
+y = 0.25 0.5 1.0 2.0 
+
+x = 1.0 2.0 3.0 4.0 5.0 
+y = 3.0 -1.0 -15.0 -45.0 -97.0 
+
+x = -3.0 -2.3 -1.6 -0.9 -0.2 0.5 1.2 1.9 2.6 3.3 4.0 4.7 
+y = -0.1383 -0.3310 -8.5224 -0.3026 -0.1908 0.3692 0.1223 0.09890 0.37851 -0.15382 -0.3233 -1.5346
+
+Dla zestawu drugiego test konczy się porażką (W punkcie 0.8 zamiast 0.7174 interpolacja zwraca 0.9435986733001698). Taki sam scenariusz został powtórzony w Matlabie. Matlabowa interpolacja nie ma takiego problemu więc można wykluczyć anomalię matematyczną powodującą ten błąd.
 
 \subsection{Testy interpolacji z wyrocznią}
 
@@ -115,15 +135,21 @@ We wszystkich przypadkach testowych obserwujemy mniejsze lub większe odchylenia
 
 Wykonane zostały testy na następujących funkcjach:
 
-Funkcja $f(x) = 5$
+%This is NOT how you do that. But I'm running out of time here!
 
-Węzły $x = [0:1:10]$
+\vspace{1cm}
+
+\textbf{Funkcja} $f(x) = 5$
+
+\textbf{Węzły} $x = [0:1:10]$
 
 Interpolowana w punktach $x = [0:0.01:10]$
 
 Wynik klasy pokrywa się (nie licząc błędów precyzji rzędu $10^{-16}$) z wynikiem otrzymanym w Matlabie.
 
-Funkcja fajna
+\vspace{1cm}
+
+\textbf{Funkcja} fajna
 
 %	3 & x = 0
 %	8 & x = 1
@@ -147,9 +173,11 @@ Niebieski: funkcja interpolująca z CubicSplineFast
 
 Wynik interpolacji w Matlabie nie pokrywa się z interpolacją klasy. Różne kształty krzywych. Obie interpolacje spełniają warunek $S(x_i) = f(x_i)$.
 
-Funkcja $f(x) = sin(x)$
+\vspace{1cm}
 
-Węzły $x = [-5:0.7:5]$
+\textbf{Funkcja} $f(x) = sin(x)$
+
+\textbf{Węzły} $x = [-5:0.7:5]$
 
 Interpolowana w punktach $x = [-3:0.05:3]$
 
@@ -158,9 +186,11 @@ Wykres różnic:\\
 
 Wyniki interpolacji są zbliżone (największa różnica $0.0018616$, punkty przegięcia takie same). Największe różnice są na krańcach przedziałów.
 
-Funkcja $f(x) = x^3 + x^2$
+\vspace{1cm}
 
-Węzły $x = [-3:0.1:5]$
+\textbf{Funkcja} $f(x) = x^3 + x^2$
+
+\textbf{Węzły} $x = [-3:0.1:5]$
 
 Interpolowana w punktach $x = [-3:0.05:5]$
 
@@ -169,9 +199,11 @@ Wykres różnic:\\
 
 Wyniki interpolacji są zbliżone (największa różnica $0.014641$, punkty przegięcia takie same). Największe różnice są na krańcach przedziałów.
 
-Funkcja $f(x) = x^-3$
+\vspace{1cm}
 
-Węzły $x = [2:1:2] \ 0$
+\textbf{Funkcja} $f(x) = x^-3$
+
+\textbf{Węzły} $x = [2:1:2] \ 0$
 
 Interpolowana w punktach $x = [-0.5:0.01:0.5]$
 

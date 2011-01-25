@@ -64,18 +64,16 @@ public class KnotTest
             new double[] {-0.138309623325406,-0.33103624414123,-0.000852248551416128,-0.302676697465328,
                 -0.190827951047524,0.369230131302064,0.122379660668094,0.0989036362724439,
                 0.378511179299017,-0.153820396979642,-0.323343853327091,-0.000153467204045813 }) });
-        
+
         return list;
     }
 
     @Test
     public void testKnot()
     {
-        System.out.println();
         CubicSplineFast spline = new CubicSplineFast(param.x, param.y);
         for(int i = 0; i < param.x.length; i++)
         {
-            System.out.println(param.x[i] + ": " + param.y[i] + " " + spline.interpolate(param.x[i]));
             assertEquals(param.y[i], spline.interpolate(param.x[i]), 0.001);
         }
     }
