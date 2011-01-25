@@ -6,6 +6,7 @@
 \selectlanguage{polish}
 \usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
 \usepackage{listings}
+\usepackage{graphicx}
 
 \author{ Michał Zochniak }
 \title{ Testowanie }
@@ -112,6 +113,71 @@ Oczekujemy tego, że wyniki interpolacji będą mniej lub bardziej się pokrywa�
 
 We wszystkich przypadkach testowych obserwujemy mniejsze lub większe odchylenia interpolacji Matlabowej od interpolacji CubicSplineFast. Każdy testowany przypadek przeszedł ``test monotoniczności'' czyli można uznać że otrzymywane krzywe miały taki sam kształt.
 
+Wykonane zostały testy na następujących funkcjach:
 
+Funkcja $f(x) = 5$
+
+Węzły $x = [0:1:10]$
+
+Interpolowana w punktach $x = [0:0.01:10]$
+
+Wynik klasy pokrywa się (nie licząc błędów precyzji rzędu $10^{-16}$) z wynikiem otrzymanym w Matlabie.
+
+Funkcja fajna
+
+%	3 & x = 0
+%	8 & x = 1
+%	7 & x = 2
+%	8 & x = 3
+%	5 & x = 4
+%	3 & x = 5
+%	5 & x = 6
+%	5 & x = 7
+%	6 & x = 8
+%	1 & x = 9
+%	3 & x = 10
+
+Interpolowana w punktach $x = [0:0.01:10]$
+
+Wyniki interpolacji:\\
+\includegraphics{spline2.png}
+Zielony: funkcje wzorcowe
+Czerwony: funkcja interpolująca z Matlaba
+Niebieski: funkcja interpolująca z CubicSplineFast
+
+Wynik interpolacji w Matlabie nie pokrywa się z interpolacją klasy. Różne kształty krzywych. Obie interpolacje spełniają warunek $S(x_i) = f(x_i)$.
+
+Funkcja $f(x) = sin(x)$
+
+Węzły $x = [-5:0.7:5]$
+
+Interpolowana w punktach $x = [-3:0.05:3]$
+
+Wykres różnic:\\
+\includegraphics{spline3.png}
+
+Wyniki interpolacji są zbliżone (największa różnica $0.0018616$, punkty przegięcia takie same). Największe różnice są na krańcach przedziałów.
+
+Funkcja $f(x) = x^3 + x^2$
+
+Węzły $x = [-3:0.1:5]$
+
+Interpolowana w punktach $x = [-3:0.05:5]$
+
+Wykres różnic:\\
+\includegraphics{spline4.png}
+
+Wyniki interpolacji są zbliżone (największa różnica $0.014641$, punkty przegięcia takie same). Największe różnice są na krańcach przedziałów.
+
+Funkcja $f(x) = x^-3$
+
+Węzły $x = [2:1:2] \ 0$
+
+Interpolowana w punktach $x = [-0.5:0.01:0.5]$
+
+Wykres różnic:\\
+\includegraphics{spline5.png}
+
+Wyniki interpolacji są zbliżone (największa róznica $1.0232 * 10^{-12}$, punkty przegięcia takie same).
 
 \end{document}
