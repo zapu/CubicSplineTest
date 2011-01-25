@@ -56,8 +56,8 @@ public class KnotTest
         CubicSplineFast spline = new CubicSplineFast(param.x, param.y);
         for(int i = 0; i < param.x.length; i++)
         {
-            System.out.println(param.x[i] + ": " + param.y[i] + " " + spline.interpolate(param.x[i]));
-            //assertEquals(param.y[i], spline.interpolate(param.x[i]), 0.000001);
+            //System.out.println(param.x[i] + ": " + param.y[i] + " " + spline.interpolate(param.x[i]));
+            assertEquals(param.y[i], spline.interpolate(param.x[i]), 0.000001);
         }
     }
 
