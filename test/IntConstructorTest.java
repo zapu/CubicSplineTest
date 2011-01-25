@@ -37,19 +37,19 @@ public class IntConstructorTest {
     }
 
     @Test
-    public void secondConstructor_Test(){
+    public void test06(){
         CubicSplineFast cs = new CubicSplineFast(0);
         assertEquals(0, cs.nPoints);
     }
 
     @Test
-    public void secondConstructor_Test2(){
+    public void test07(){
         CubicSplineFast cs = new CubicSplineFast(10);
         assertEquals(cs.x.length, cs.nPoints);
     }
 
     @Test
-    public void secondConstructor_Test3(){
+    public void test08(){
         CubicSplineFast cs = new CubicSplineFast(10);
         for(int i=0; i<cs.nPoints; i++){
             assertEquals(cs.x[i], cs.y[i], eps);

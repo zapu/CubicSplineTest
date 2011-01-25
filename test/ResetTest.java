@@ -9,7 +9,7 @@ public class ResetTest
 
     //Black-box tests
     @Test
-    public void resetData_Test(){
+    public void Test1(){
         double[] expected_x = new double[]{1, 2, 3};
         double[] expected_y = new double[]{1, 2, 3};
         CubicSplineFast cs = new CubicSplineFast(3);
@@ -24,7 +24,7 @@ public class ResetTest
     }
 
     @Test(expected=ArrayIndexOutOfBoundsException.class)
-    public void resetData_Test2(){
+    public void Test2(){
         double[] expected_x = new double[]{1, 2, 3};
         double[] expected_y = new double[]{1, 2, 3};
         CubicSplineFast cs = new CubicSplineFast(10);

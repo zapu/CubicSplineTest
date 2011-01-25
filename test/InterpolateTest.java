@@ -9,7 +9,7 @@ public class InterpolateTest
 
 
     @Test
-    public void interpolate_InOutRangeTest() {
+    public void InOutRangeTest() {
         double[] x = new double[]{185.0e-9, 214.0e-9, 275.0e-9, 361.0e-9, 509.0e-9, 589.0e-9, 656.0e-9};
         double[] y = new double[]{1.57464, 1.53386, 1.49634, 1.47503, 1.4619, 1.4583, 1.4564};
 
@@ -23,7 +23,7 @@ public class InterpolateTest
     }
 
     @Test(expected=IllegalArgumentException.class)
-    public void interpolate_SamePointsTest() {
+    public void SamePointsTest() {
         double[] x = new double[]{0,1,1};
         double[] y = new double[]{1,2,3};
         CubicSplineFast cs = new CubicSplineFast(x, y);
@@ -33,7 +33,7 @@ public class InterpolateTest
     }
 
     @Test
-    public void interpolate_PositiveInfTest() {
+    public void PositiveInfTest() {
         double[] x = new double[]{0, 1, 1, 4};
         double[] y = new double[]{1, 2, 3, Double.POSITIVE_INFINITY};
         CubicSplineFast cs = new CubicSplineFast(x, y);

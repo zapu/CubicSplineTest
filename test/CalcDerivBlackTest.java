@@ -85,11 +85,12 @@ public class CalcDerivBlackTest
         new CubicSplineFast(x3, y3);
     }
 
-    private static void assertArrayEquals(double[] expectedDeriv, double[] d2ydx2, double d)
+    private static void assertArrayEquals(double[] arrayA, double[] arrayB, double delta)
     {
-        for(int i = 0; i < expectedDeriv.length; i++)
+        assertEquals(arrayA.length, arrayB.length);
+        for(int i = 0; i < arrayA.length; i++)
         {
-            assertEquals(expectedDeriv[i], d2ydx2[i], d);
+            assertEquals(arrayA[i], arrayB[i], delta);
         }
     }
 
