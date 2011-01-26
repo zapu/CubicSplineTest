@@ -25,6 +25,8 @@ public class ConstructorTest {
         double[] x = new double[] { 1, 3 };
         double[] y = new double[] { 2, 1 };
         CubicSplineFast csf = new CubicSplineFast(x, y);
+        assertArrayEquals(x, csf.x, eps);
+        assertArrayEquals(y, csf.y, eps);
     }
 
     @Test
@@ -32,6 +34,8 @@ public class ConstructorTest {
         double[] x = new double[] { 1, 2, 3, 4, 5 };
         double[] y = new double[] { 2, 1, 2, 1, 0 };
         CubicSplineFast csf = new CubicSplineFast(x, y);
+        assertArrayEquals(x, csf.x, eps);
+        assertArrayEquals(y, csf.y, eps);
     }
 
     @Test (expected = ArrayIndexOutOfBoundsException.class)
@@ -39,5 +43,14 @@ public class ConstructorTest {
         double[] x = new double[] { 1, 2, 3, 4 };
         double[] y = new double[] { 2, 1, 3 };
         CubicSplineFast csf = new CubicSplineFast(x, y);
+    }
+
+    private static void assertArrayEquals(double[] arrayA, double[] arrayB, double delta)
+    {
+        assertEquals(arrayA.length, arrayB.length);
+        for(int i = 0; i < arrayA.length; i++)
+        {
+            assertEquals(arrayA[i], arrayB[i], delta);
+        }
     }
 }
